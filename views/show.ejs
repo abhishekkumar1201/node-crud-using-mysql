@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Node Crud App</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+         <!-- CSS only -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+         <!-- JavaScript Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
+ 
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="#">Node Crud App</a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/insert">Add User</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/show">User List</a>
+                              </li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                          </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>User List</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="/insert" class="btn btn-success" style="float:right;">Add User</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <table class="table table-bordered text-center table-border shadow">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+                    <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.password %></td>
+                        <td>
+                            <a href="/edit/<%= user.id %>" class="btn btn-warning">Edit</a>
+                            <a href="/delete/<%= user.id %>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <% })  %>
+            </table>
+        </div>
+    </body>
+</html>
